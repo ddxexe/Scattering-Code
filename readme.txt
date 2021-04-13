@@ -9,7 +9,7 @@ Inputs: photon_x, photon_y, photon_z are the x, y, and z coordinates of our phot
 Output: “scattered” is a Boolean which returns a “1” if the distance between the particle and the photon is less than r.
 
 
-create_network.m
+make_network.m
 Description: Creates a 3-dimensional network of particles. This is done by splitting up a user-defined 3-dimensional space into a series of cubic “voxels”. Each voxel will contain exactly one
 particle, which will be placed in a random location inside the voxel (the only restriction being that it must be placed so that no part of the particle extends outside the voxel).
 
@@ -24,7 +24,7 @@ find_next_voxel.m
 Description: This function takes receives information about the position and direction of a photon and calculates the next voxel a photon will enter. It moves a photon along its projected path, 
 updating its position as it travels. It will detect when it enters a new voxel.
 
-Inputs: x_pos, y_pos, and z_pos are the x, y, and z positions of the photon. x_range, y_range, and z_range, x_reg, y_reg, and z_reg all work the same way as they do in create_network().
+Inputs: x_pos, y_pos, and z_pos are the x, y, and z positions of the photon. x_range, y_range, and z_range, x_reg, y_reg, and z_reg all work the same way as they do in make_network().
 Scatter_phi and scatter_theta are the 2 values describing the current angle of the photon’s path. Scatter_phi and scatter_theta follow spherical polar coordinates; or in other words,
 scatter_phi is the angle on the xy plane relative to the positive x direction, and its measure always lies between 0 and 2*pi. Scatter_theta is the measure of the angle from the positive z direction,
 and all measures lie between 0 and pi.
