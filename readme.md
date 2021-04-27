@@ -9,7 +9,7 @@ The goal of this code is to create a versatile set of robust simulations of Mie 
 A simple 3D distance calculation between a photon and a particle. It could be removed and readily incorporated into other functions but it is currently kept as a separate program because there is still plenty of room for improvement; see the last section of this file for more.
 
 *Inputs:*
-photon_x, photon_y, photon_z are the x, y, and z coordinates of our photon. part_x, part_y, and part_z are the x, y, and z coordinates of the particle. r is the radius of the particle.
+photon_x, photon_y, photon_z are the x, y, and z coordinates of our photon. part_x, part_y, and part_z are the x, y, and z coordinates of the particle. r is the radius of the particle sharing the same voxel as the photon. angle_phi and angle_theta follow the normal conventions of spherical coordinates and define the current projected trajectory of the photon.
 
 *Output:*
 “scattered” is a Boolean which returns a “1” if the distance between the particle and the photon is less than r.
