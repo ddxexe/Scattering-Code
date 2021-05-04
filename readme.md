@@ -30,7 +30,7 @@ positions is a 3x(x_reg*y_reg*z_reg) array where each column contains the x, y, 
 
 **find_next_voxel.m**
 
-*Description:* This function takes receives information about the position and direction of a photon and calculates the next voxel a photon will enter. It moves a photon along its projected path, updating its position as it travels. It will detect when it enters a new voxel.
+*Description:* This function receives information about the position and direction of a photon and calculates the next voxel a photon will enter. It moves a photon along its projected path, updating its position as it travels. It will detect when it enters a new voxel.
 
 *Inputs:*
 x_pos, y_pos, and z_pos are the x, y, and z positions of the photon. x_range, y_range, and z_range, x_reg, y_reg, and z_reg all work the same way as they do in create_network(). Scatter_phi and scatter_theta are the 2 values describing the current angle of the photon’s path. Scatter_phi and scatter_theta follow spherical polar coordinates; or in other words, scatter_phi is the angle on the xy plane relative to the positive x direction, and its measure always lies between 0 and 2*pi. Scatter_theta is the measure of the angle from the positive z direction, and all measures lie between 0 and pi.
