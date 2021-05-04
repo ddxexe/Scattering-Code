@@ -1,16 +1,28 @@
-function result = check_if_scattered(photon_x,photon_y,photon_z,part_x,part_y,part_z,r)
+function result = check_dist(xp, yp, zp, ang_phi, ang_theta, xs, ys, zs, r)
+found = false;
+%x0 through z0 are the photon rectangular coordinates
+%x1 through z1 are the particle rectangular coordinates
+%ang_phi, ang_theta work as they normally would in spherical coordinates
 
-%Checks the current position of the photon and its projected path
-%Determines if the photon will get sufficiently close to the particle
+xd = xp-xs;
+yd = yp-ys;
+zd = zp-zs;
 
-scattered = false;
+xa = cos(ang_phi)*sin(ang_theta);
+ya = sin(ang_phi)*sin(ang_theta);
+za = cos(ang_theta);
 
-dist = sqrt((photon_x-part_x)^2+(photon_y-part_y)^2+(photon_z-part_z)^2);
+t = -(xd*xa + yd*ya + zd*za);
 
-if dist<r
-    scattered = true;
-end
+x_dist = xd + t * xa;
+y_dist = yd + t * ya;
+z_dist = zd + t * za;
 
-result = scattered;
+dist = sqrt(x_dist^2 + y_dist^2 + z_dist^2);
 
-end
+if dist < r,
+  found  = true;
+endif
+result = found;
+
+endfunction 
