@@ -70,6 +70,21 @@ while photon_counter < photons
 
     endwhile
 
+    if!new_photon and !reset_path and !loop_voxel_find and valid_voxel
+    
+        scattered  = check_if_scattered(x_pos, y_pos, z_pos,
+        scatter_phi, scatter_theta, positions(1,voxel_index), positions(2,voxel_index),positions(3,voxel_index));
+
+        if scattered == 1
+
+        heatmap(voxel_index)++;
+        heatmap2(1, photon_counter+1)  = voxel_index;
+        
+        angle_data = tetascan_dist(m,x,phiSteps);
+
+        scatter_phi = angle_data(1);
+        scatter_theta = angle_data(2);
+
     result = heatmap_2;
 
 end
