@@ -80,11 +80,16 @@ while photon_counter < photons
         heatmap(voxel_index)++;
         heatmap2(1, photon_counter+1)  = voxel_index;
         
-        angle_data = tetascan_dist(m,x,phiSteps);
+        angle_data_1 = tetascan_dist(m,x,phiSteps);
 
-        scatter_phi = angle_data(1);
-        scatter_theta = angle_data(2);
+        scatter_phi = angle_data_1(1);
+        scatter_theta = angle_data_1(2);
 
+        angle_data_2 = adj_coords(x,y,z,
+        positions(1,voxel_index),positions(2,voxel_index),positions(3,voxel_index),
+        scatter_phi,scatter_theta);
+
+        
     result = heatmap_2;
 
 end
