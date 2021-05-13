@@ -2,6 +2,17 @@ The goal of this code is to create a versatile set of robust simulations of Mie 
 
 # Functions 
 
+**adj_coord.m**
+*Description:*
+Mie scattering calculations are computed with repect to a "scattering plane", which is always perpendicular to the direction of the photon's path. Our other coordinates are with respect to a global system. adj_coord bridges the two by converting the relative Mie scattering calculationsn to be compatible with the global coordinates used by the rest of the code.
+
+*Inputs:*
+x,y, and z are the position of the photon using global coordinates. xs,ys, and zs are the position of the sphere using global coordanates. ang_phi and ang_theta are phi and theta, as per the relative/non-global coordinates for Mie scattering.
+
+
+*Outputs:*
+angle_data_2 is an array containing 2 elements. The 2 elements are the original phi and theta, converted from non-global to global coordinates.
+
 
 **check_if_scattered.m**
 

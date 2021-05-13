@@ -20,7 +20,7 @@ ang_theta = acos(z);
 ang_phi = atan(x/y);
 
 if ang_phi < 0,
-    ang_phi += 180;
+    ang_phi = ang_phi + pi;
 endif
 
 angle_data_2(1) = ang_phi;
