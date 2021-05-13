@@ -85,11 +85,11 @@ while photon_counter < photons
         scatter_phi = angle_data_1(1);
         scatter_theta = angle_data_1(2);
 
-        angle_data_2 = adj_coords(x,y,z,
+        angle_data_2 = adj_coord(x,y,z,
         positions(1,voxel_index),positions(2,voxel_index),positions(3,voxel_index),
         scatter_phi,scatter_theta);
 
-        
+
     result = heatmap_2;
 
 end
