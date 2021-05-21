@@ -14,9 +14,6 @@ loop_voxel_search = true;
 reset_photon_path = false;
 
 
-
-
-
 valid_voxel = false;
 new_photon = true;
 
@@ -70,7 +67,7 @@ while photon_counter < photons
 
     endwhile
 
-    if!new_photon and !reset_path and !loop_voxel_find and valid_voxel
+    if !new_photon and !reset_path and !loop_voxel_find and valid_voxel
     
         scattered  = check_if_scattered(x_pos, y_pos, z_pos,
         scatter_phi, scatter_theta, positions(1,voxel_index), positions(2,voxel_index),positions(3,voxel_index));

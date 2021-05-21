@@ -6,7 +6,7 @@
 %Runs the base code from mie_tetascan
 %Maetzler 2002
 
-function result = tetascan_dist3(m, x, nsteps)
+function result = tetascan_dist(m, x, nsteps)
 m1=real(m); m2=imag(m);
 nx=(1:nsteps); dteta=pi/(nsteps-1);
 teta=(nx-1).*dteta;
