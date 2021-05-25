@@ -45,15 +45,13 @@ while found == false,
   
   for n = 1:2*nsteps,
     
-    if and((percentile > z(n,2)),   (n > 1)),
+    if percentile > z(n,2) and   (n > 1),
       z(n,1);
       z(n-1,1);
       angle(1,q) = (z(n,1) + z(n+1,1))/2;
-      angle(2,q) = pi*rand();
-      found = true;
     end
   end
 end
-endfor
+
 
 result=angle;
