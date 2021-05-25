@@ -1,12 +1,12 @@
-function result = check_dist(xp, yp, zp, ang_phi, ang_theta, xs, ys, zs, r)
+function result = check_dist(x_p, y_p, z_p, ang_phi, ang_theta, xs, ys, zs, r)
 found = false;
 %x0 through z0 are the photon rectangular coordinates
 %x1 through z1 are the particle rectangular coordinates
 %ang_phi, ang_theta work as they normally would in spherical coordinates
 
-xd = xp-xs;
-yd = yp-ys;
-zd = zp-zs;
+xd = x_p-xs;
+yd = y_p-ys;
+zd = z_p-zs;
 
 xa = cos(ang_phi)*sin(ang_theta);
 ya = sin(ang_phi)*sin(ang_theta);
