@@ -60,13 +60,24 @@ photon_info is a 1x7 array containing important information for the photon once 
 **sim_scatter.m**
 
 *Description:*
-simulates the scattering patterns and distribution of a user-defined number of photons.
+Simulates the scattering patterns and distribution of a user-defined number of photons.
 
 *Inputs:*
 x_range, y_range, z_range, x_reg, y_reg, z_reg, and r all work the same way as outlined in the other programs. Phi_steps and theta_steps are used to affect the level of precision to calculations. Higher values of phi_steps and theta_steps will yieldmore accurate simulations, but will take a longer time to execute. The larger the particle network is, the more important it is to use larger values of phi_steps and theta_steps to produce accurate results.“photons” is the number of photons that will be simulated.
 
 *Outputs:*
 heatmap is a display of the frequency at which certain voxels have scatters occurring inside them. 
+
+**tetascan_dist.m**
+
+*Description:*
+Generates a probability distribution for a scattered particle, then selects a scattering angle based off this probability distribution.
+
+*Inputs:*
+m is the complex refractive index. We can think of m as k+ni, where k is the standard refractive index, and n is the attenuation constant. x is the size parameter, which is the quotient of 2pi * particle radius and the wavelength of the incident light. PhiSteps is a parameter which affects the precision of our calculations. Broadly speaking, it is the number of possible directions our photons are capable of being scattered to.
+
+*Outputs:*
+Angle is the scattering angle, with respect to the scattering plane. This value lies between 0 and 2*pi.
 
 # Current Shortcomings:
 
