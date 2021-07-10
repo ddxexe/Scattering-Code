@@ -1,7 +1,12 @@
-function result = tetascan_dist(m, x, nsteps)
+#Tentative Mie Scattering code
+
+#Uses Mie scattering models and simulations based on the work of Matzler, 2002
+
 
 %Runs the base code from mie_tetascan
 %Maetzler 2002
+
+function result = tetascan_dist(m, x, nsteps)
 m1=real(m); m2=imag(m);
 nx=(1:nsteps); dteta=pi/(nsteps-1);
 teta=(nx-1).*dteta;
@@ -15,6 +20,7 @@ y=[teta teta+pi;SL SR(nsteps:-1:1)]';
 
 %Sums up approximate area enclosed by 
 %mie_tetascan curve
+
 y(1,3) = (pi*(y(1,2).^2)/(2*nsteps));
 for k = 1:2*nsteps,
   y(k,4) = y(k,2) * cos(y(k,1));
@@ -31,8 +37,6 @@ for l = 1:2*nsteps,
   z(l,2) = y(l,3) * norm_dist;
 end
 
-polar(y(:,1),y(:,2));
-scatter(z(:,1),z(:,2));
 
 percentile = rand();
 found = false;
@@ -42,14 +46,16 @@ while found == false,
   for n = 1:2*nsteps,
     
     if and((percentile > z(n,2)),   (n > 1)),
-      z(n,1);
-      z(n-1,1);
       angle = (z(n,1) + z(n+1,1))/2;
-      
       found = true;
-    end
-  end
-end
+    endif
+  endfor
+endwhile
 
 
+polar(z(:,1),z(:,2))
+title(sprintf('Mie angular scattering: m=%g+%gi, x=%g',m1,m2,x));
+xlabel('Scattering Angle')
 result=angle;
+
+endfunction
