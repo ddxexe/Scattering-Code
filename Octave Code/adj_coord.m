@@ -19,7 +19,7 @@ z1 = -x0*sin(ang_theta) + z0*cos(ang_theta);
 ang_theta = acos(z1);
 ang_phi = atan(x1/y1);
 
-if ang_phi < 0,
+if cos(ang_phi) > 0,
     ang_phi = ang_phi + pi;
 endif
 
