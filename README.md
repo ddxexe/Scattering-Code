@@ -2,14 +2,31 @@ The goal of this code is to create a versatile set of robust simulations of Mie 
 
 # Functions 
 
+**adj_coord.m**
+
+*Description:*
+Calculates the new photon position and trajectory. The position and direction are functions of the current photon trajectory, local scattering angles, and step distance.
+
+*Inputs:*
+xs, ys, and zs are the global position of the scattering location. This is the first point in our photon's projected path where a scatter within this voxel would be possible. incidence_phi and incidence_theta are the global azimuthal and polar angles of the incident photon's trajectory. sca_phi and sca_theta are the local azimuthal and polar scattering angles. The latter two angles are defined relative to our scattering plane, plane perpendicular to our photon path (characterized by incidence_phi and incidence_theta). dist is the distance per step event in our photon's path. This value is presently defined as one tenth of the diagonal length of each voxel.
+
+*Output:*
+next_pos as a 1 x 5 array containing information about the photon's updated position and trajectory. The first 3 columns store the photon's global x, y, and z position coordinates, and the fourth and fifth columns store the photon's global azimuthal and polar angles, phi and theta.
 
 **check_if_scattered.m**
 
 *Description:*
-A simple 3D distance calculation between a photon and a particle. It could be removed and readily incorporated into other functions but it is currently kept as a separate program because there is still plenty of room for improvement; see the last section of this file for more.
+Calculates if the photon is projected to scatter with the scatterer within the same voxel. It identifies whether the particle is projected to scatter at all, as well as how many step events need to happen for a scatter event to take place and the global photon position at the time of the scatter.
 
 *Inputs:*
-photon_x, photon_y, photon_z are the x, y, and z coordinates of our photon. part_x, part_y, and part_z are the x, y, and z coordinates of the particle. r is the radius of the particle.
+rp is a 1 x 3 array containing the photon's global rectangular coordinates. ang_phi and ang_theta are the global azimuthal and polar angles for the photon's current direction. rs is a 1 x 3 array containing the scatterer's global rectangular coordinates.
+
+*Outputs:*
+Our output is a 1 x 5 array containing information relative to our potential scatter event. Our first element is labelled "result", our second "t", and our third, fourth, and fifth arguments are "x_nearest", "y_nearest", and "z_nearest". 
+
+result is a Boolean which states whether or not a scatter event takes place in this voxel. t is the number of step events which takes place between our current photon's current position and the nearest position needed for a scatter event to take place. x_nearest, y_nearest, and z_nearest are global rectangular coordinates of the photon at the time of the scattering event.
+
+
 
 *Output:*
 “scattered” is a Boolean which returns a “1” if the distance between the particle and the photon is less than r.
@@ -44,6 +61,17 @@ photon_info is a 1x7 array containing important information for the photon once 
 5.	The value of scatter_phi.
 6.	The value of scatter_theta.
 7.	A Boolean variable determining whether or not the photon is inside or outside the 3-dimensional space.
+
+**mie_tetascan2.m**
+
+*Description:* An updated version or Christian Matzler's intensity function code from 2002. This is the primary function used for characterizing single scatter events and it returns a large number of relevant figures which show information abou the scatter event. This function is largely independent of the other functions stored on the repository.
+
+*Inputs:* m is the refractive index of our scattering media. m can be a complex number of form a+bi, where a is the standard refractive index and b is an attenuation constant. Note that mie_tetascan2 is equipped to account for attenuation but the other functions currently are not designed for this. x is the size parameter, which is a ratio of the incident photon wavelength to the particles' hemisphere circumference. nsteps and n_theta are both parameters used to determine the precision and number of possible scattering angles that will be accounted for. Larger values means the function will tabulate results for a greater number of angles but will consequently require a longer time to compute.
+
+*Outputs:*
+
+*Outputs:*
+
 
 
 **sim_scatter.m**
