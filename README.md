@@ -1,4 +1,4 @@
-The goal of this code is to create a versatile set of robust simulations of Mie network scatters. The utility of the programs is as follows:
+The goal of this code is to create a versatile set of robust simulations of Mie network scatters. The utility of the programs is as follows, test change:
 
 # Functions 
 
