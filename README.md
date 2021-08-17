@@ -85,4 +85,3 @@ heatmap is a display of the frequency at which certain voxels have scatters occu
 
 
 1. The original build of the code was designed around using HPC and running MATLAB code through a shell instead of a normal GUI. As a result, the code’s output is currently plaintext, which isn’t conducive to many ways of displaying data that one might want to use this code for, such as time-sensitive heatmaps.
-
